@@ -1,0 +1,24 @@
+B- En este caso el orden seria 43. 
+    Formula: https://gyazo.com/1b9e1ae375578b04cbea25859c84a797
+
+C- Implica que el numero de claves que entran por nodo es mayor. Se debe a que cada 
+    una ahora ocupa mucho menos que en el Ej1. 
+
+D- Lo que aca se haria es realizar la busqueda dentro del arbol del nodo con el 
+    DNI 12345678 (busqueda explicada en el E del Ej1). Una vez encontrado dicho nodo, se 
+    accede al mismo y se toma la posicion del registro. 
+        Finalmente con ese indice y un filepos (archivo, posicion) se llega al alumno.
+
+E- Si se desea buscar un alumno por numero de legajo, no va a quedar otra opcion mas que 
+    recorrer el archivo de alumnos uno por uno. En este caso directamente no se puede
+    utilizar el arbol, unicamente contiene dni y la posicion del registro.
+        Para brindar acceso indizado al archivo de alumnos por número de legajo se podria
+        o bien organizar el arbol a partir de los legajos, en vez de los DNI. O agregar
+        una segunda clave para ordenarlo (DNI y legajo).
+
+F- El problema es que este arbol solo provee acceso indizado por DNI, por lo que no puede
+    realizar una busqueda eficiente por rangos.
+    No va a quedar otra opcion mas que recorrer todo el arbol (aprovechando el orden) 
+    buscando cada nodo que tenga DNI dentro del rango. 
+    Para solucionarlo se podria crear un indice secundario con estructura de arbol B+ , 
+    permitiendo realizar busquedas mas eficientes.

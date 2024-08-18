@@ -1,0 +1,20 @@
+A- En un árbol B+, el primer elemento de cada nodo hoja es igual 
+    al elemento padre correspondiente. Esta propiedad se cumple 
+    específicamente en los hijos del lado derecho del árbol. 
+
+B- La característica principal es que en los nodos hoja se encuentra 
+    toda la información del árbol. Todo lo que esté en los nodos padre y
+    raíz va a ser una copia de los mismos (o de la clave de los mismos).
+
+D- La búsqueda vendría a funcionar de la misma manera que en árboles B,
+    haciendo uso de la búsqueda binaria. La diferencia está en que la 
+    estructura de estos árboles hace que la misma sea más eficiente: 
+    su altura es menor, búsqueda más rápida, búsqueda de rangos.
+
+E- Para una búsqueda entre rangos:
+    Haciendo uso de la búsqueda binaria se para sobre el primer nodo
+    hoja (o primer elemento de un nodo hoja) que está entre el rango. 
+    Luego simplemente recorre de izquierda a derecha los elementos de 
+    las hojas (hasta que sea necesario), haciendo uso de las conexiones 
+    entre las mismas.
+

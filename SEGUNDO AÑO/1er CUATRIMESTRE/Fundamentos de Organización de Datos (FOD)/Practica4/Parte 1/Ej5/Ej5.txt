@@ -1,0 +1,25 @@
+5- Overflow: Se da cuando se están insertando elementos en un árbol B o B+ y
+    se llena un nodo. Lo que sucede es que se divide: La primera mitad va  
+    ser el hijo izq, el primero de la segunda mitad va a ser el padre, 
+    y el resto hijo der. 
+    En los árboles B+ hay que tener en cuenta que se divide a la mitad y al
+    padre sube una copia. 
+
+  Underflow: Caso contrario, se da cuando se están eliminando elementos de
+    un árbol y un nodo queda con menos del mínimo permitido. Acá es necesario 
+    realizar una redistribución(nodo hermano tiene más del mínimo) 
+    considerando las hojas y los índices. De no ser posible debe realizarse 
+    una fusión entre los nodos.
+
+  Redistribución: Cuando un nodo tiene menos claves de las permitidas, se 
+    busca un nodo hermano que tenga más claves que el mínimo y se 
+    redistribuyen.
+    En los B+ también implica transferir punteros (nodos internos) o registros
+    completos (nodos hoja).
+
+  Fusión: Cuando un nodo tiene menos claves de las permitidas y no tiene 
+    ningún hermano que tenga más del mínimo, se fusiona con uno de sus 
+    estos. En la fusión, se combinan las claves y los punteros de los nodos 
+    involucrados para formar un solo nodo.
+    En los B+ también implica actualizar los punteros de los nodos internos 
+    para mantener la coherencia en la estructura.

@@ -1,0 +1,28 @@
+B- Entrarian 7 registros de persona en cada nodo del Arbol B. De esta forma:
+    7*64 = 448 bytes para nodos.
+    8*4 = 32 bytes para entero hijos.
+    4 bytes para la cantidad de claves.
+
+    El valor de M es 8. Formula: https://gyazo.com/59a9c2651dd20f74f0353a9bd9fb2b8f
+
+C- El impacto vendría ser que no tiene en los nodos hoja, la informacion de los nodos
+    padre. De esta manera, si bien el tiene mas espacios en los nodos hoja, la busqueda 
+    es menos eficiente que en arboles B+ .
+
+D- Seleccionaria el numero de legajo, debido a que es un numero unico para cada alumno. 
+    El DNI tambien podria ser otra opcion que es univoca, pero es mas larga.
+
+E- Para la busqueda: 
+    * Comienza en la raíz del árbol y compara la clave de búsqueda con las claves 
+        almacenadas en el mismo.
+    * Si no se encuentra en la raiz va a seguir con el hijo que corresponda. Dependiendo
+        del valor del nodo padre con la clave de busqueda.
+    * Realiza el mismo proceso de recorrer el nodo y ver si encuentra la clave. De no
+        encontrarla sigue con los hijos (si los hay). Asi sucesivamente.
+
+    Peor caso: Cantidad de lecturas igual a la altura del arbol.
+    Mejor caso: Logarítmica en base M del número de registros almacenados en el árbol.
+
+F- Si se busca un alumno por un criterio diferente, en el peor de los casos las lecturas
+    necesarias seria igual a la cantidad total de nodos. Esto debido a que no se puede
+    aprovechar el orden de la estructura.
