@@ -5,6 +5,16 @@ public class Producto {
 	private double precioPorKilo;
 	private String descripcion;
 	
+	public Producto() {
+    }
+    
+    // Constructor copia
+    public Producto(Producto producto) {
+        this.descripcion = producto.getDescripcion();
+        this.peso = producto.getPeso();
+        this.precioPorKilo = producto.getPrecioPorKilo();
+    }
+
 	public double getPeso() {
 		return peso;
 	}

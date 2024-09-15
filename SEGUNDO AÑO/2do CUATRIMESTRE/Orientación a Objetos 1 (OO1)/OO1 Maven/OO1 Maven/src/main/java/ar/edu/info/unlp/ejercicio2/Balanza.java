@@ -1,43 +1,58 @@
 package ar.edu.info.unlp.ejercicio2;
 import java.time.LocalDate;
+import java.util.*;
 
 public class Balanza {
-	private int cantidadDeProductos;
-	private double precioTotal;
-	private double pesoTotal;
+	// private int cantidadDeProductos; no hace falta ahora teniendo la lista
+	//private double precioTotal; idem 
+	// private double pesoTotal; idem 
+	private List<Producto> productos;
+	
+	public Balanza () {
+		this.productos = new LinkedList<Producto>();
+	}
+	
 	
 	public void ponerEnCero() {
-		this.cantidadDeProductos = 0;
-		this.precioTotal = 0;
-		this.pesoTotal = 0;
+		this.productos = new LinkedList<Producto>(); // Se "reinicia" la lista de productos
 	}
+	
 	
 	public void agregarProducto (Producto producto) {
-		this.cantidadDeProductos++;
-		this.precioTotal += producto.getPrecio();
-		this.pesoTotal += producto.getPeso();
+		this.productos.add(producto);
 	}
+	
 	
 	public Ticket emitirTicket() {
-		Ticket ticket = new Ticket ();
-		
-		ticket.setFecha(LocalDate.now());
-		ticket.setCantidadDeProductos(this.cantidadDeProductos);
-		ticket.setPrecioTotal(this.precioTotal);
-		ticket.setPesoTotal(this.pesoTotal);
-		
-		return ticket;
+		return new Ticket (LocalDate.now(), productos);
 	}
 	
+	
 	public double getPesoTotal() {
-		return this.pesoTotal;
+		double total = 0;
+		
+		if (!productos.isEmpty()) {
+			for (Producto producto: productos)
+				total += producto.getPeso();
+		}
+		
+		return total;
 	}
 
+	
 	public int getCantidadDeProductos() {
-		return cantidadDeProductos;
+		return this.productos.size();
 	}
 
+	
 	public double getPrecioTotal() {
-		return precioTotal;
+		double total = 0;
+		
+		if (!productos.isEmpty()) {
+			for (Producto producto: productos)
+				total += producto.getPrecio();
+		}
+		
+		return total;
 	}
 }
