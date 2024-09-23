@@ -1,7 +1,7 @@
 package io.github.unlp_oo.Ej5_oo1;
 
 public class Cuerpo3D {
-	private Object caraBasal;
+	private Figura caraBasal;
 	private double altura;
 	
 	public void setAltura(double altura) {
@@ -12,7 +12,7 @@ public class Cuerpo3D {
 		return this.altura;
 	}
 	
-	public void setCaraBasal (Object caraBasal) {
+	public void setCaraBasal (Figura caraBasal) {
 		this.caraBasal = caraBasal;
 	}
 	

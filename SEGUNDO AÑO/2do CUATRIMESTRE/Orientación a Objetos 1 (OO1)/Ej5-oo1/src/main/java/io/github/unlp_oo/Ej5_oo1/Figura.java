@@ -1,7 +1,7 @@
 package io.github.unlp_oo.Ej5_oo1;
 
 
-public interface Object {
+public interface Figura {
 
 	public double getArea();
 

@@ -1,6 +1,6 @@
 package io.github.unlp_oo.Ej5_oo1;
 
-public class Cuadrado implements Object {
+public class Cuadrado implements Figura{
 	private double lado;
 	
 	public void setLado(double lado) {

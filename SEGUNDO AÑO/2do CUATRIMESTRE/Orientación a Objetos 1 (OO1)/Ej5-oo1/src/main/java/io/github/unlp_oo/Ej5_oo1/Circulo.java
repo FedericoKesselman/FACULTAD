@@ -1,6 +1,6 @@
 package io.github.unlp_oo.Ej5_oo1;
 
-public class Circulo implements Object{
+public class Circulo implements Figura{
 	private double radio;
 	
 	public double getDiametro() {
