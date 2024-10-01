@@ -1,21 +1,21 @@
 package io.github.unlp_oo.Ej10_oo1;
 
-public class jobDescription {
+public class JobDescription {
 	private double effort;
 	private int priority;
 	private String description;
 	
-	public jobDescription (double effort, int priority, String description) {
+	public JobDescription (double effort, int priority, String description) {
 		this.effort = effort;
 		this.priority = priority;
 		this.description = description;
 	}
 	
-	public double effort() {
+	public double getEffort() {
 		return this.effort;
 	}
 	
-	public int priority() {
+	public int getPriority() {
 		return this.priority;
 	}
 	
