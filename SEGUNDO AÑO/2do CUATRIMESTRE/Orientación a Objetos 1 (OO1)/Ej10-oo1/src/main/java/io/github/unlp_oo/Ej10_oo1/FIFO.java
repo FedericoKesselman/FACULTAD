@@ -7,7 +7,7 @@ public class FIFO implements Strategy{
 		JobDescription nextJob = null;
 		
 		if (jobs != null)
-				jobs.get(0);
+				nextJob = jobs.get(0);
 		
 		return nextJob;
 	}
