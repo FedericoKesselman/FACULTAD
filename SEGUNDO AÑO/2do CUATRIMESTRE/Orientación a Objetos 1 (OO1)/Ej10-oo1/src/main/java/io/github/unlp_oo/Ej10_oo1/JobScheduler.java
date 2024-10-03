@@ -5,6 +5,10 @@ public class JobScheduler {
 	private Strategy strategy;
 	private List<JobDescription> jobs;
 	
+	public JobScheduler () {
+		jobs = new LinkedList<>();
+	}
+	
 	public JobScheduler (Strategy strategy) {
 		this.strategy = strategy;
 		jobs = new LinkedList<JobDescription>();
@@ -24,7 +28,7 @@ public class JobScheduler {
 		return this.strategy;
 	}
 	
-	public void setStratey(Strategy strategy) {
+	public void setStrategy(Strategy strategy) {
 		this.strategy = strategy; 
 	}
 	
