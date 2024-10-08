@@ -1,4 +1,4 @@
-package io.github.unlp_oo.Ej9_oo1;
+package io.github.unlp_oo.Test_EJ9;
 
 public class CajaDeAhorro extends Cuenta{
 	
@@ -11,8 +11,8 @@ public class CajaDeAhorro extends Cuenta{
 	}
 	
 	
-	public void extraerSinControlar (double monto) { // Este metodo o el extraer sin controlar? 
-		super.extraerSinControlar(monto * 0.98);
+	public boolean extraer (double monto) { 
+		return super.extraer(monto * 0.98);
 	}
 	
 	
