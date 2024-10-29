@@ -1,4 +1,4 @@
-package io.github.unlp_oo.Ej9_oo1;
+package io.github.unlp_oo.Test_EJ9;
 
 public abstract class Cuenta {
 	private double saldo;
@@ -34,8 +34,7 @@ public abstract class Cuenta {
 	
 	
 	public boolean transferirACuenta (double monto, Cuenta cuentaDestino) {
-		if (this.puedeExtraer(monto)) {
-			this.extraerSinControlar(monto);
+		if (this.extraer(monto)) {
 			cuentaDestino.depositar(monto);
 			return true;
 		}

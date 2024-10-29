@@ -1,4 +1,4 @@
-package io.github.unlp_oo.Ej9_oo1;
+package io.github.unlp_oo.Test_EJ9;
 
 public class CuentaCorriente extends Cuenta{
 	private double descubierto;
