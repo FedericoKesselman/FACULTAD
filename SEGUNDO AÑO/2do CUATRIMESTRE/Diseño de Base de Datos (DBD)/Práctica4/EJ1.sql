@@ -70,3 +70,41 @@ WHERE (p.nombreP IN ('prod1','prod2')) AND NOT EXISTS (
     WHERE (f2.idCliente = c.idCliente) AND (p2.nombreP = 'prod3')
     )
 GROUP BY c.idCliente, c.nombre, c.apellido, c.DNI, c.telefono, c.direccion
+
+
+
+/* EJ 7 */
+SELECT f.nroTicket, f.total, f.fecha, f.hora, c.DNI 
+FROM factura f
+INNER JOIN cliente c ON (f.idCliente = c.idCliente)
+INNER JOIN detalle d ON (f.nroTicket = d.nroTicket)
+INNER JOIN producto p ON (d.idProducto = p.idProducto)
+WHERE (p.nombreP = "prod38") OR (YEAR(f.fecha)=2019);
+
+
+
+/* EJ 8 */
+INSERT INTO cliente (idCliente, nombre, apellido, DNI, telefono, direccion)
+VALUES (500002, "Jorge Luis", "Castor", 40578999, "221-4400789", "11 entre 500 y 501 nro:2587")
+
+
+
+/* EJ 9 */
+SELECT f.nroTicket, f.total, f.fecha, f.hora
+FROM factura f
+INNER JOIN cliente c ON (f.idCliente = c.idCliente)
+WHERE (c.nombre="Jorge" AND c.apellido="Pérez") AND f.nroTicket NOT IN (
+    SELECT d.nroTicket
+    FROM detalle d
+    INNER JOIN producto p ON (d.idProducto = p.idProducto)
+    WHERE (p.nombreP = "Z")
+    )
+
+
+
+/* EJ 10 */
+SELECT c.DNI, c.apellido, c.nombre
+FROM cliente c
+INNER JOIN factura f ON (c.idCliente = f.idCliente)
+GROUP BY c.idCliente, c.DNI, c.apellido, c.nombre
+HAVING SUM(f.total) > 10000000;
