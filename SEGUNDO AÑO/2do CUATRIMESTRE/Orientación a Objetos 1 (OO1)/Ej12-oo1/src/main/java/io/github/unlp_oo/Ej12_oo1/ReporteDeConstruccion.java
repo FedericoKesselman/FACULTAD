@@ -8,6 +8,15 @@ public class ReporteDeConstruccion {
 		this.piezas = piezas;
 	}
 	
+	public ReporteDeConstruccion () {
+		this.piezas = new LinkedList<Pieza>();
+	}
+	
+	public void agregarPieza (Pieza pieza) {
+		this.piezas.add(pieza);
+	}
+	
+	
 	public double getVolumenDeMaterial (String nombreDeMaterial) {
 		return piezas.stream()
 				.filter(Pieza -> Pieza.getMaterial().equalsIgnoreCase(nombreDeMaterial))

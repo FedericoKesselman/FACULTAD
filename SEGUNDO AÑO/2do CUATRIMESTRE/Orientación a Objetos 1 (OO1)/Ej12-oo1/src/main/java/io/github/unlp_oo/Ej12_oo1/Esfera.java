@@ -9,7 +9,7 @@ public class Esfera extends Pieza{
 	}
 	
 	public double getVolumen() {
-		return 4/3 * Math.PI * Math.pow(radio, 3);	
+		return (4.0/3.0) * Math.PI * Math.pow(radio, 3);	
 	}
 	
 	public double getSuperficie() {
