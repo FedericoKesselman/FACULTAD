@@ -12,6 +12,18 @@ public class Email {
 		this.adjuntos = adjuntos;
 	}
 	
+	public Email (String titulo, String cuerpo) {
+		this.titulo = titulo;
+		this.cuerpo = cuerpo;
+		adjuntos = new LinkedList<Archivo>();
+	}
+	
+	
+	public void agregarArchivo (Archivo archivo) {
+		this.adjuntos.add(archivo);
+	}
+	
+	
 	public String getTitulo() {
 		return this.titulo;
 	}
