@@ -1,4 +1,4 @@
-package io.github.unlp_oo.EJ17_OO1;
+package io.github.unlp_oo.EJ17y18_OO1;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -13,7 +13,6 @@ public class Reserva {
         this.periodo = periodo;
 	}
     
-    
     public boolean isDisponible (DateLapse fechas) {
     	return !periodo.overlaps(fechas);
     }
@@ -24,5 +23,9 @@ public class Reserva {
     
     public LocalDate fechaInicio () {
     	return periodo.getFrom();
+    }
+    
+    public DateLapse getPeriodo() {
+    	return this.periodo;
     }
 }

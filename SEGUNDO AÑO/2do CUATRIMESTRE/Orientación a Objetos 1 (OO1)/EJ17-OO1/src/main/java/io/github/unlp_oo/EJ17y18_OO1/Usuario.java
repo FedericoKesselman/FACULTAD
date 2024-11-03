@@ -1,4 +1,4 @@
-package io.github.unlp_oo.EJ17_OO1;
+package io.github.unlp_oo.EJ17y18_OO1;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -23,6 +23,6 @@ public class Usuario {
 	
 	
 	public double calcularIngresos(DateLapse periodo) {
-        //
+        // consulta
     }
 }

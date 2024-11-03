@@ -1,4 +1,4 @@
-package io.github.unlp_oo.EJ17_OO1;
+package io.github.unlp_oo.EJ17y18_OO1;
 import java.util.*;
 import Ej14b.DateLapse;
 import java.time.LocalDate;
@@ -8,17 +8,22 @@ public class Propiedad {
 	private String nombre;
 	private double precio;
 	private List<Reserva> reservas;
+	private PoliticaCancelacion politica;
 	
-	public Propiedad (String direccion, String nombre, double precio) {
+	
+	public Propiedad (String direccion, String nombre, double precio, PoliticaCancelacion politica) {
 		this.direccion = direccion;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.reservas = new LinkedList<Reserva>();
+		this.politica = politica;
 	}
+	
 	
 	public List<Reserva> getReservas() {
 		return this.reservas;
 	}
+	
 	
 	public boolean estaDisponible (LocalDate fechaInicial, LocalDate fechaFinal) {
 		return reservas.stream()
@@ -42,10 +47,14 @@ public class Propiedad {
 	}
 	
 	
-	public void cancelarReserva(Reserva reserva) {
+	public double cancelarReserva(Reserva reserva) {
+		
 	    if (LocalDate.now().isBefore(reserva.fechaInicio()) && reservas.contains(reserva)) {
-	        reservas.remove(reserva);
+	    	reservas.remove(reserva);
+	    	return politica.calcularReembolso(reserva.getPeriodo(), precio);
 	    }
+	    
+	    return 0.0;
 	}
 }
 
