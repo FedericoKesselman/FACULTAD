@@ -17,4 +17,11 @@ public class EnvioLocal extends Envio {
 		else
 			return 1500;
 	}
+	
+	
+	/*
+	 public double calcularCosto(CuadroTarifario cuadro) {
+	 	return cuadroTarifario.getCostoEnvioLocal(this.entregaRapida);
+	 }
+	 */
 }

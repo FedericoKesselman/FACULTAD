@@ -7,6 +7,7 @@ public abstract class Cliente {
 	private String direccion;
 	private List<Envio> envios;
 	
+	
 	public Cliente (String nombre, String direccion) {
 		this.nombre = nombre;
 		this.direccion = direccion;

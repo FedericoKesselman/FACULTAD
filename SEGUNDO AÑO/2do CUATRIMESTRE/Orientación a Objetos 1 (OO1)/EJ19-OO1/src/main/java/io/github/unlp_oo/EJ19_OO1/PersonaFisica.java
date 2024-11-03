@@ -11,6 +11,6 @@ public class PersonaFisica extends Cliente{
 	}
 
 	public double calcularMontoTotal(LocalDate fechaInicio, LocalDate fechaFin) {
-		return super.calcularMontoTotal(fechaInicio, fechaFin) * 0.9;
+		return super.calcularMontoTotal(fechaInicio, fechaFin) * 0.9; // Descuento del 10%
 	}
 }

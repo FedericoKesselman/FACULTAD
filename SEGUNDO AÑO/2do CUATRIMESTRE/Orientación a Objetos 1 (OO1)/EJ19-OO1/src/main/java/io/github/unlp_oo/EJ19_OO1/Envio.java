@@ -23,4 +23,6 @@ public abstract class Envio {
 	}
 	
 	public abstract double calcularCosto();
+	// public abstract double calcularCosto(CuadroTarifario cuadro); En caso de manejar los costos directamente en el cuadro
+
 }

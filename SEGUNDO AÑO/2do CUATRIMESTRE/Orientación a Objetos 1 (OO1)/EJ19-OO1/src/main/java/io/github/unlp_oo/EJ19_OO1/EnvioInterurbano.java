@@ -19,4 +19,11 @@ public class EnvioInterurbano extends Envio {
 		
 		return 30 * this.getPeso();
 	}
+	
+	
+	/*
+	 public double calcularCosto(CuadroTarifario cuadro) {
+	 	return cuadroTarifario.getCostoEnvioInterurbano(this.km, this.getPeso());
+	 }
+	 */
 }

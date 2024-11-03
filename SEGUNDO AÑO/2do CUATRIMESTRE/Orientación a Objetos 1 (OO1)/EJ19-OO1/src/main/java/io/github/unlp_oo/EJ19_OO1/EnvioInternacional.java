@@ -16,4 +16,11 @@ public class EnvioInternacional extends Envio {
 		
 		return 5000 + 12 * this.getPeso();
 	}
+	
+	
+	/* 
+	 public double calcularCosto(CuadroTarifario cuadro) {
+	 	return cuadroTarifario.getCostoEnvioInternacional(this.pais, this.getPeso());
+	 }
+	 */
 }
