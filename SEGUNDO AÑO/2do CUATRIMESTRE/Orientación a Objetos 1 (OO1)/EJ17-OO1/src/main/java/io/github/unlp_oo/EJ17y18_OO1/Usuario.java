@@ -23,6 +23,6 @@ public class Usuario {
 	
 	
 	public double calcularIngresos(DateLapse periodo) {
-        // consulta
+		//
     }
 }
