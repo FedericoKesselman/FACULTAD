@@ -4,14 +4,20 @@ import java.time.LocalDate;
 import io.github.unlp_oo.Ej14_oo1.Date;
 
 public class DateLapse implements Date{
-
 	private LocalDate from;
 	private int sizeInDays;
+	
 	
 	public DateLapse(LocalDate desde, int cant) {
 		this.from = desde;
 		this.sizeInDays = cant;
 	}
+	
+	
+	public DateLapse(LocalDate desde, LocalDate hasta) {
+        this.from = desde;
+        this.sizeInDays = (int) desde.until(hasta, java.time.temporal.ChronoUnit.DAYS);
+    }
 	
 	
 	public LocalDate getFrom() {
@@ -27,6 +33,7 @@ public class DateLapse implements Date{
 		return this.sizeInDays;
 	}
 	
+	
 	public boolean includesDate(LocalDate other) {
 		//Reemplazo la variable TO por el metodo getTo.
 		
@@ -35,4 +42,7 @@ public class DateLapse implements Date{
 	}
 	
 	
+	public boolean overlaps(DateLapse other) {
+        return this.getFrom().isBefore(other.getTo()) && this.getTo().isAfter(other.getFrom());
+    }
 }

@@ -7,31 +7,22 @@ import Ej14b.DateLapse;
 public class Reserva {
 	private Usuario usuario;
 	private DateLapse periodo;
-	private double precioReserva;
 	
-	
-	public Reserva(Usuario usuario, double precioNoche, LocalDate date1, LocalDate date2) {
+	public Reserva(Usuario usuario, double precioNoche, DateLapse periodo) {
         this.usuario = usuario;
-        
-        int cantidadDias = (int) ChronoUnit.DAYS.between(date1, date2);
-        this.periodo = new DateLapse(date1, cantidadDias);
-        this.precioReserva = precioNoche * periodo.sizeInDays();
+        this.periodo = periodo;
 	}
     
     
-    public boolean isDisponible (LocalDate date1, LocalDate date2) {
-    	return !periodo.includesDate(date1) && !periodo.includesDate(date2);
+    public boolean isDisponible (DateLapse fechas) {
+    	return !periodo.overlaps(fechas);
     }
-    
-    
-    public double getPrecioReserva() {
-    	return this.precioReserva;
+   
+    public int cantDias() {
+    	return this.periodo.sizeInDays();
     }
-    
     
     public LocalDate fechaInicio () {
     	return periodo.getFrom();
     }
-    
-    
 }

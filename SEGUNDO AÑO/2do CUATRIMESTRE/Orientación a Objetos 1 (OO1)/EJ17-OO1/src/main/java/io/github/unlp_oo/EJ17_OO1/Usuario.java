@@ -2,6 +2,8 @@ package io.github.unlp_oo.EJ17_OO1;
 import java.time.LocalDate;
 import java.util.*;
 
+import Ej14b.DateLapse;
+
 public class Usuario {
 	private String nombre;
 	private String direccion;
@@ -19,9 +21,8 @@ public class Usuario {
 		this.propiedades.add(propiedad);
 	}
 	
-	public double calcularIngresos(LocalDate fechaInicio, LocalDate fechaFin) {
-	    return propiedades.stream()
-	        
-	}
-
+	
+	public double calcularIngresos(DateLapse periodo) {
+        //
+    }
 }
