@@ -23,6 +23,8 @@ public class Usuario {
 	
 	
 	public double calcularIngresos(DateLapse periodo) {
-		//
+		return propiedades.stream()
+				.mapToDouble(propiedad -> propiedad.precioReservasEnPeriodo(periodo))
+				.sum() * 0.75;
     }
 }

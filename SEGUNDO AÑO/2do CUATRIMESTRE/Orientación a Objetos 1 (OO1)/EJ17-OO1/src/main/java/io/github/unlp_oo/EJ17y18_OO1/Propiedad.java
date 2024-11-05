@@ -29,7 +29,6 @@ public class Propiedad {
 		return reservas.stream()
 				.allMatch(reserva -> reserva.isDisponible( new DateLapse(fechaInicial, fechaFinal)) );
 		// .allMatch(...) para verificar que todas las reservas existentes son compatibles con el nuevo período (isDisponible es true para todas).
-		// date lapse tiene el constructor a partir de la fecha inicial y la fecha final
 	}
 	
 	
@@ -56,6 +55,15 @@ public class Propiedad {
 	    
 	    return 0.0;
 	}
+	
+	
+	public double precioReservasEnPeriodo (DateLapse periodo) {
+		return reservas.stream()
+				.filter(reserva -> !reserva.isDisponible(periodo)) 
+	            .mapToDouble(reserva -> this.precioReserva(reserva)) 
+	            .sum(); 
+	}
+	
 }
 
 
