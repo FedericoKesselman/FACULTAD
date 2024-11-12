@@ -23,6 +23,12 @@ public abstract class Envio {
 	}
 	
 	public abstract double calcularCosto();
+	
 	// public abstract double calcularCosto(CuadroTarifario cuadro); En caso de manejar los costos directamente en el cuadro
 
+	
+	public boolean isEntreFechas(LocalDate fecha1, LocalDate fecha2) {
+		return (this.fecha.isAfter(fecha1.minusDays(1)) && 
+                this.fecha.isBefore(fecha2.plusDays(1)) );
+	}
 }

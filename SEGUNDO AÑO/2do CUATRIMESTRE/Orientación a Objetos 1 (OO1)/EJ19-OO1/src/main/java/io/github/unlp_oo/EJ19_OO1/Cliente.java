@@ -21,15 +21,10 @@ public abstract class Cliente {
 	
 	
 	public double calcularMontoTotal(LocalDate fechaInicio, LocalDate fechaFin) {
-		double total = 0.0;
-		
-		for (Envio envio : envios) { // seria mejor manejarlo en Envio? (por el concepto de envidia)
-            if (envio.getFecha().isAfter(fechaInicio.minusDays(1)) && 
-                envio.getFecha().isBefore(fechaFin.plusDays(1))) {
-                total += envio.calcularCosto();
-            }
-        }
-		
-		return total;
+		return envios.stream()
+				.filter(envio -> envio.isEntreFechas(fechaInicio, fechaFin))
+				.mapToDouble(envio -> envio.calcularCosto())
+				.sum();
 	}
+	
 }
