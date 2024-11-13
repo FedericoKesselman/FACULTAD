@@ -12,24 +12,25 @@ public abstract class Contrato {
 		return this.fechaInicio;
 	}
 	
-	public abstract boolean isActivo();
-	public abstract double montoBasico (Empleado e);
-	public abstract int duracion();
-	
 	private double montoAntiuedad(Empleado e) {
 		int ant = e.antiguedad();
+		
 		if (ant >= 5 && ant < 10)
-			return 0.3;
+			return 1.3;
 		else if (ant >= 10 && ant < 15)
-			return 0.5;
+			return 1.5;
 		else if (ant >= 15 && ant < 20)
-			return  0.7;
+			return  1.7;
 		else 
-			return 1;
+			return 2;
 	}
 	
 	public double montoContrato(Empleado e) {
-		return this.montoBasico(e) + this.montoAntiuedad(e);
+		return this.montoBasico(e) * this.montoAntiuedad(e);
 		
 	}
+	
+	public abstract boolean isActivo();
+	public abstract double montoBasico (Empleado e);
+	public abstract int duracion();
 }

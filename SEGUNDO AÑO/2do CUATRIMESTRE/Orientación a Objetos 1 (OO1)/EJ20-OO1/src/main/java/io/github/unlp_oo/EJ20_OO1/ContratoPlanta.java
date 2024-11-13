@@ -1,6 +1,7 @@
 package io.github.unlp_oo.EJ20_OO1;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class ContratoPlanta extends Contrato{
 	private double sueldo;
@@ -28,7 +29,7 @@ public class ContratoPlanta extends Contrato{
 	
 	
 	public int duracion() {
-		return 0; // es contra la actual
+		return (int) ChronoUnit.YEARS.between(getFechaInicio(), LocalDate.now());
 	}
 	
 }

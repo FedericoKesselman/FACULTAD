@@ -57,7 +57,7 @@ public class Empleado {
 	
 	
 	public void agregarContrato (Contrato contrato) {
-		if (this.contratoVigente() == null) // o si lo quiere arear despues
+		if (this.contratoVigente() == null) // o si lo quiere agregar despues
 			contratos.add(contrato);
 	}
 	
@@ -75,7 +75,7 @@ public class Empleado {
 		
 		return new ReciboSueldo (this.nombre, this.apellido, this.CUIL, this.antiguedad(), 
 				LocalDate.now(), this.contratoVigente().montoContrato(this));
-			}
+		}
 	
 	
 	

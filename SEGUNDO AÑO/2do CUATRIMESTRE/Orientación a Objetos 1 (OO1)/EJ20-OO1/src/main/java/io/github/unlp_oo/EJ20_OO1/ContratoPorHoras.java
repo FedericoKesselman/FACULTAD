@@ -7,7 +7,6 @@ public class ContratoPorHoras extends Contrato{
 	private int cantHoras;
 	private LocalDate fechaFin;
 	
-	
 	public ContratoPorHoras(LocalDate fechaInicio, double valorPorHora, int cantHoras, LocalDate fechaFin) {
 		super(fechaInicio);
 		this.valorPorHora = valorPorHora;
@@ -28,5 +27,4 @@ public class ContratoPorHoras extends Contrato{
 	public int duracion() {
 		return (int) ChronoUnit.YEARS.between(fechaFin, getFechaInicio());
 	}
-	
 }

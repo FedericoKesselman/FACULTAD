@@ -13,11 +13,10 @@ public class ReciboSueldo {
 	public ReciboSueldo(String nombre, String apellido, int CUIL, int antiguedad, LocalDate fecha, double monto) {
 		this.nombre = nombre;
 		this.apellido = apellido;
-		CUIL = CUIL;
+		this.CUIL = CUIL;
 		this.antiguedad = antiguedad;
 		this.fecha = fecha;
 		this.monto = monto;
 	}
-	
 	
 }
