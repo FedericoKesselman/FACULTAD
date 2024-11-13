@@ -11,11 +11,11 @@ public class Conductor extends Usuario{
 	}
 
 	@Override
-	public void cargarSaldo(double saldo) {
+	public double getComision(double monto) {
 		if (vehiculo.esModerno())
-			this.agregarSaldo(saldo * 0.99);
-		else 
-			this.agregarSaldo(saldo * 0.9);
+			return monto * 0.01;
+		else
+			return monto * 0.1;
 	}
 	
 	@Override

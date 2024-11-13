@@ -8,28 +8,25 @@ public class Pasajero extends Usuario {
 	public Pasajero(String nombre, double saldo) {
 		super(nombre, saldo);
 		this.viajes = new LinkedList<>();
-	}
+	}	
 
 	@Override
-	public void cargarSaldo(double saldo) {
-		Viaje ultViaje = viajes.get(viajes.size()-1);
-		
-		if ((ultViaje != null) && (ultViaje.menosDe30Dias()))
-			this.agregarSaldo(saldo);
-		
-		else 
-			this.agregarSaldo(saldo * 0.9);
+	public double getComision(double monto) {
+		if (viajes.stream().anyMatch(v -> v.menosDe30Dias())) {
+	        return 0;
+	    }
+	    return monto * 0.10;
 	}
 	
 	public void realizarViaje(Viaje v) {
-		if (this.getSaldo() > 0) 
+		if (this.getSaldo() >= 0) 
 			v.agregarPasajero(this);
 	}
 	
 	@Override
 	public void procesar(double monto, Viaje v) {
 		super.procesar(monto, v);
-		this.viajes.add(v)
+		this.viajes.add(v);
 	}
 	
 	public double getBonificacion() {

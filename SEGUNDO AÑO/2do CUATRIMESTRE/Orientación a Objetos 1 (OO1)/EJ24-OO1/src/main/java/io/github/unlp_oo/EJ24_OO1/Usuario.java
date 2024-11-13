@@ -9,8 +9,8 @@ public abstract class Usuario {
 		this.saldo = saldo;
 	}
 	
-	protected void agregarSaldo(double saldo) {
-		this.saldo += saldo;
+	protected void cargarSaldo(double monto) {
+		this.saldo += monto - this.getComision(monto);
 	}
 	
 	public double getSaldo() {
@@ -18,9 +18,9 @@ public abstract class Usuario {
 	}
 	
 	public void procesar(double monto, Viaje v) {
-		this.saldo -= monto - this.getBonificacion();
+		this.saldo = this.saldo - monto - this.getBonificacion();
 	}
 	
+	protected abstract double getComision(double monto);
 	protected abstract double getBonificacion();
-	protected abstract void cargarSaldo(double saldo);
 }
