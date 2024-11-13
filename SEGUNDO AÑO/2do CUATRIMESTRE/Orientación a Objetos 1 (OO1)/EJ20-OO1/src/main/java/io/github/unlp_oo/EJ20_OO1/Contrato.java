@@ -1,5 +1,7 @@
 package io.github.unlp_oo.EJ20_OO1;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Contrato {
 	private LocalDate fechaInicio;
@@ -33,4 +35,16 @@ public abstract class Contrato {
 	public abstract boolean isActivo();
 	public abstract double montoBasico (Empleado e);
 	public abstract int duracion();
+
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -10,10 +10,6 @@ public class Carpeta {
 		this.emails = new LinkedList<Email>();
 	}
 	
-	public String getNombre() {
-		return this.nombre;
-	}
-	
 	public List<Email> getEmails() {
 		return new LinkedList<Email>(this.emails);
 	}
@@ -40,4 +36,35 @@ public class Carpeta {
 				.mapToInt(Email -> Email.tamano())
 				.sum();
 	}
+	
+	public int cantidadMails() {
+		return this.emails.size();
+	}
+	
+	
+	public Map<String, Integer> tamanoCategorias() {
+		Map<String, Integer> map = new HashMap<>();
+		
+		map.put("Pequeno", 0);
+		map.put("Mediano", 0);
+		map.put("Grande", 0);
+		
+		emails.stream().forEach(e -> map.put(e.getCategoria(), map.get(e.getCategoria() + 1)) );
+		
+		/*
+		for (Email e: emails) 
+			map.put(e.getCategoria(), map.get(e.getCategoria() + 1));
+		*/
+		
+		return map;
+	}
 }
+
+
+
+
+
+
+
+
+

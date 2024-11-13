@@ -29,4 +29,10 @@ public class ClienteDeCorreo {
 		return this.inbox.tamano() + tamanoCarpetas;
 	}
 	
+	public int cantidadMails() {
+		return carpetas.stream()
+				.mapToInt(c -> c.cantidadMails())
+				.sum();
+	}
+	
 }

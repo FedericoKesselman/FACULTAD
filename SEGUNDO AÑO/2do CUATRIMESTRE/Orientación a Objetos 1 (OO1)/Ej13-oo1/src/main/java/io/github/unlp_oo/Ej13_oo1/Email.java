@@ -6,34 +6,14 @@ public class Email {
 	private String cuerpo;
 	private List<Archivo> adjuntos;
 	
-	public Email (String titulo, String cuerpo, List<Archivo> adjuntos) {
-		this.titulo = titulo;
-		this.cuerpo = cuerpo;
-		this.adjuntos = adjuntos;
-	}
-	
 	public Email (String titulo, String cuerpo) {
 		this.titulo = titulo;
 		this.cuerpo = cuerpo;
 		adjuntos = new LinkedList<Archivo>();
 	}
 	
-	
 	public void agregarArchivo (Archivo archivo) {
 		this.adjuntos.add(archivo);
-	}
-	
-	
-	public String getTitulo() {
-		return this.titulo;
-	}
-	
-	public String getCuerpo() {
-		return this.cuerpo;
-	}
-	
-	public List<Archivo> getAdjuntos() {
-		return new ArrayList<Archivo>(this.adjuntos);
 	}
 	
 	public int tamano() {
@@ -46,5 +26,20 @@ public class Email {
 	
 	public boolean contiene (String texto) {
 		return (this.titulo.contains(texto) || this.cuerpo.contains(texto));
+	}
+	
+	public String getCategoria() {
+		int tam = this.tamano();
+		
+		if (tam <= 300)
+			return "Pequeno";
+		else if (tam <= 500)
+			return "Mediano";
+		else 
+			return "Grande";
+	}
+
+	public List<Archivo> getAdjuntos() {
+		return this.adjuntos;
 	}
 }

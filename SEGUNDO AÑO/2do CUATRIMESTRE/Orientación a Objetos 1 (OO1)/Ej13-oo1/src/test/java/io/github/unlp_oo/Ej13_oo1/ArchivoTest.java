@@ -16,5 +16,4 @@ public class ArchivoTest {
 	void testConstructor() {
 		assertEquals (3, archivo.tamano());
 	}
-	
 }
