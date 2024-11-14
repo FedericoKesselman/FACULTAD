@@ -12,19 +12,19 @@ public class Pasajero extends Usuario {
 
 	@Override
 	public double getComision(double monto) {
-		if (viajes.stream().anyMatch(v -> v.menosDe30Dias())) {
+		if (viajes.stream().anyMatch(v -> v.menosDe30Dias())) 
 	        return 0;
-	    }
+		
 	    return monto * 0.10;
 	}
 	
 	public void realizarViaje(Viaje v) {
-		if (this.getSaldo() >= 0)
-			v.agregarPasajero(this);
+		if ((this.getSaldo() >= 0) && v.agregarPasajero(this))
+			this.viajes.add(v);
 	}
 	
 	public double getBonificacion() {
-		if (viajes.size() > 1)
+		if (viajes.size() >= 1)
 			return 500;
 		else 
 			return 0;

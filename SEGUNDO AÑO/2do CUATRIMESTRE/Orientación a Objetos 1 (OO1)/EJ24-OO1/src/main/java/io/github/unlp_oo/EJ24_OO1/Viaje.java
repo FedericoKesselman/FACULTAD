@@ -23,23 +23,27 @@ public class Viaje {
 	}
 	
 	public boolean menosDe30Dias() {
-		return ChronoUnit.DAYS.between(this.fecha, LocalDate.now()) <= 30;
+		return ChronoUnit.DAYS.between(LocalDate.now(), this.fecha) <= 30;
 	}
 	
-	public boolean sePuedeAgregar() {
-		return vehiculo.hayCapacidad(pasajeros.size() + 1) && ChronoUnit.DAYS.between(this.fecha, LocalDate.now()) >= 2;
+
+	public boolean sePuedeAgregar() { // FALLA EN CALCULAR LOS DOS DIAS
+		return vehiculo.hayCapacidad(pasajeros.size() + 1) && (ChronoUnit.DAYS.between(this.fecha, LocalDate.now()) >= 2);
 	}
 	
 	
-	public void agregarPasajero(Pasajero p) {
-		if (this.sePuedeAgregar()) 
+	public boolean agregarPasajero(Pasajero p) {
+		if (this.sePuedeAgregar()) {
 			pasajeros.add(p);
+			return true;
+		}
+		return false;
 	}
 	
 	public void procesarViaje() {
 		double pasaje = costo / pasajeros.size();
 		pasajeros.stream()
-			.forEach(p -> p.procesar(pasaje, this));
+			.forEach(p -> p.procesar(pasaje));
 	}
 	
 }

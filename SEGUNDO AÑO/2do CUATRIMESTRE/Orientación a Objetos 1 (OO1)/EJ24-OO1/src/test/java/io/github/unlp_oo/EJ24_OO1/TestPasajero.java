@@ -20,7 +20,9 @@ public class TestPasajero {
 	    this.c = new Conductor("Baltazar", 500, vehiculo);
 	    this.p1 = new Pasajero("Federico", 0);
 	    this.p2 = new Pasajero("Joaquin", 0);
-	    this.viaje = new Viaje("///", "///", 100, vehiculo, LocalDate.now());
+	    
+	    LocalDate fecha = LocalDate.of(2024, 11, 30);
+	    this.viaje = new Viaje("///", "///", 900, vehiculo, fecha);
 	}
 	
 	@Test
@@ -29,10 +31,11 @@ public class TestPasajero {
 	    assertEquals(900, p1.getSaldo()); 
 
 	    p1.realizarViaje(viaje); 
-	    // viaje.procesarViaje(); Tirar error
-
-	    p2.cargarSaldo(1000); 
-	    System.out.println(p2.getSaldo());
-	    assertEquals(900, p2.getSaldo());
+	    // viaje.procesarViaje();
+	    
+	    System.out.println(p1.getSaldo());
+	    p1.cargarSaldo(1000); 
+	    System.out.println(p1.getSaldo());
+	    assertEquals(1000, p1.getSaldo());
 	}
 }

@@ -10,15 +10,15 @@ public abstract class Usuario {
 	}
 	
 	protected void cargarSaldo(double monto) {
-		this.saldo += monto - this.getComision(monto);
+		this.saldo = this.saldo + monto - this.getComision(monto);
 	}
 	
 	public double getSaldo() {
 		return this.saldo;
 	}
 	
-	public void procesar(double monto, Viaje v) {
-		this.saldo -= monto - this.getBonificacion();
+	public void procesar(double monto) {
+		this.saldo = this.saldo - (monto - this.getBonificacion());
 	}
 	
 	protected abstract double getComision(double monto);
