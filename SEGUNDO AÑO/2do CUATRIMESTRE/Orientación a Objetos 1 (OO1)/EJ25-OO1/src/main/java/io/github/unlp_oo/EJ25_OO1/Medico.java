@@ -1,6 +1,5 @@
 package io.github.unlp_oo.EJ25_OO1;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 
 public class Medico {
@@ -19,6 +18,6 @@ public class Medico {
 	}
 	
 	public int antiguedad() {
-		return (int) ChronoUnit.YEARS.between(fechaIngreso, LocalDate.now());
+		 return LocalDate.now().getYear() - fechaIngreso.getYear();
 	}
 }

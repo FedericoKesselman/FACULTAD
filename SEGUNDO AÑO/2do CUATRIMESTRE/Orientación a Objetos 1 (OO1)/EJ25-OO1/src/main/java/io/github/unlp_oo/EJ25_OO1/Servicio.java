@@ -27,6 +27,7 @@ public abstract class Servicio {
 	public double calcularCostoEnFecha (LocalDate fecha) {
 		if (this.coincideFecha(fecha))
 			return this.costoServicio();
-		return 0;
+		else
+			return 0;
 	}
 }
