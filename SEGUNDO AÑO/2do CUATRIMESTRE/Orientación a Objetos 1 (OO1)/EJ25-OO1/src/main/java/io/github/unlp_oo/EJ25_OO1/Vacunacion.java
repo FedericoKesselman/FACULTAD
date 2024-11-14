@@ -12,7 +12,7 @@ public class Vacunacion extends Consulta{
 		this.costoV = costoV;
 	}
 	
-	public double costoMaterialDescartable() {
+	protected double costoMaterialDescartable() {
 		return 500;
 	}
 	

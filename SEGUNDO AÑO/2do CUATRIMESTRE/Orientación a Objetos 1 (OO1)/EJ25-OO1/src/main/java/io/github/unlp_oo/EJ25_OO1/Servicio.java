@@ -20,7 +20,7 @@ public abstract class Servicio {
 		return this.fecha;
 	}
 	
-	public boolean coincideFecha(LocalDate fecha) {
+	protected boolean coincideFecha(LocalDate fecha) {
 		return this.fecha.equals(fecha);
 	}
 	

@@ -9,23 +9,23 @@ public abstract class Consulta extends Servicio{
 		this.medico = medico;
 	}
 	
-	public double honorariosMedico() {
+	protected double honorariosMedico() {
 		return this.medico.getHonorarios();
 	}
 	
-	public abstract double costoMaterialDescartable();
+	protected abstract double costoMaterialDescartable();
 	
-	public double calcularDomingo() {
+	protected double calcularDomingo() {
 		if (this.getFecha().getDayOfWeek().getValue() == 7)
 			return 200;
 		return 0;
 	}
 	
-	public double costoConsulta() {
+	protected double costoConsulta() {
 		return this.honorariosMedico() + this.costoMaterialDescartable() + this.calcularDomingo();
 	}
 	
-	public int antiguedadMedico() {
+	protected int antiguedadMedico() {
 		return this.medico.antiguedad();
 	}
 }

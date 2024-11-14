@@ -6,7 +6,7 @@ public class ConsultaMedica extends Consulta{
 		super (medico, fecha, mascota);
 	}
 	
-	public double costoMaterialDescartable() {
+	protected double costoMaterialDescartable() {
 		return 300;
 	}
 	
