@@ -18,7 +18,7 @@ public abstract class Usuario {
 	}
 	
 	public void procesar(double monto, Viaje v) {
-		this.saldo = this.saldo - monto - this.getBonificacion();
+		this.saldo -= monto - this.getBonificacion();
 	}
 	
 	protected abstract double getComision(double monto);

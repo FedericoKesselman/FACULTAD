@@ -19,14 +19,8 @@ public class Pasajero extends Usuario {
 	}
 	
 	public void realizarViaje(Viaje v) {
-		if (this.getSaldo() >= 0) 
+		if (this.getSaldo() >= 0)
 			v.agregarPasajero(this);
-	}
-	
-	@Override
-	public void procesar(double monto, Viaje v) {
-		super.procesar(monto, v);
-		this.viajes.add(v);
 	}
 	
 	public double getBonificacion() {
