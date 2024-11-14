@@ -21,7 +21,7 @@ public class Guarderia extends Servicio{
 	}
 	
 	@Override
-	public boolean coincideFecha(LocalDate fecha) {
+	protected boolean coincideFecha(LocalDate fecha) {
 		return this.dias.includesDate(fecha);
 	}
 }

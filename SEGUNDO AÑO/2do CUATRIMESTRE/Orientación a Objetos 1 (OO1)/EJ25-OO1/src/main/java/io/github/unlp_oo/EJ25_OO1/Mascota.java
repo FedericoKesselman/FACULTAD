@@ -46,6 +46,10 @@ public class Mascota {
 				.mapToDouble (s -> s.calcularCostoEnFecha(fecha))
 				.sum();
 	}
+	
+	public List<Servicio> getServicios() {
+		return this.servicios;
+	}
 }
 
 
