@@ -13,19 +13,19 @@ public abstract class Consulta extends Servicio{
 		return this.medico.getHonorarios();
 	}
 	
+	public abstract double costoMaterialDescartable();
+	
 	public double calcularDomingo() {
 		if (this.getFecha().getDayOfWeek().getValue() == 7)
 			return 200;
 		return 0;
 	}
 	
-	public abstract double costoMaterialDescartable();
-	
 	public double costoConsulta() {
-		return this.honorariosMedico() + this.calcularDomingo() + this.costoMaterialDescartable();
+		return this.honorariosMedico() + this.costoMaterialDescartable() + this.calcularDomingo();
 	}
 	
-	public Medico getMedico() {
-		return this.medico;
+	public int antiguedadMedico() {
+		return this.medico.antiguedad();
 	}
 }

@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Vacunacion extends Consulta{
 	private String nombre;
-	private double costo;
+	private double costoV;
 	
-	public Vacunacion (String nombre, double costo, Medico medico, LocalDate fecha, Mascota mascota) {
+	public Vacunacion (String nombre, double costoV, Medico medico, LocalDate fecha, Mascota mascota) {
 		super(medico, fecha, mascota);
 		this.nombre = nombre;
-		this.costo = costo;
+		this.costoV = costoV;
 	}
 	
 	public double costoMaterialDescartable() {
@@ -18,6 +18,6 @@ public class Vacunacion extends Consulta{
 	
 	@Override
 	public double costoServicio() {
-		return this.costoConsulta() + this.costo;
+		return this.costoConsulta() + this.costoV;
 	}
 }

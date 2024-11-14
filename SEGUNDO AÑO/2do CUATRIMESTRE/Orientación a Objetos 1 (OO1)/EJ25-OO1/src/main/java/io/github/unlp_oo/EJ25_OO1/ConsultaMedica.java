@@ -12,8 +12,6 @@ public class ConsultaMedica extends Consulta{
 	
 	@Override
 	public double costoServicio() {
-		return this.costoConsulta() + this.getMedico().antiguedad() * 100;
+		return this.costoConsulta() + this.antiguedadMedico() * 100;
 	}
-
-
 }
