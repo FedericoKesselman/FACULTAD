@@ -31,4 +31,14 @@ public class Mascota {
 		this.servicios.add(g);
 		return g;
 	}
+	
+	public boolean utilizo5servicios() {
+		return this.servicios.size() >= 5;
+	}
+	
+	public double recaudacionFecha(LocalDate fecha) {
+		return this.servicios.stream()
+				.mapToDouble(s -> s.recaudadoEnFecha(fecha))
+				.sum();
+	}
 }

@@ -10,4 +10,12 @@ public class Vacunacion extends ServicioMedico{
 		this.nombreV = nombreV;
 		this.costo = costo;
 	}
+	
+	protected double costoMaterialDescartable() {
+		return 500;
+	}
+	
+	public double costoServicio() {
+		return this.costoServicioMedico() + this.costo;
+	}
 }

@@ -11,4 +11,12 @@ public class Medico {
 		this.fechaI = fechaI;
 		this.honorarios = honorarios;
 	}
+	
+	public double getHonorarios() {
+		return this.honorarios;
+	}
+	
+	public int antiguedad() {
+		return LocalDate.now().getYear() - this.fechaI.getYear();
+	}
 }

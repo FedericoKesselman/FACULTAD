@@ -9,4 +9,17 @@ public class Guarderia extends Servicio{
 		super(mascota);
 		this.periodo = new DateLapse(fechaI, cantDias);
 	}
+	
+	public double costoServicio() {
+		double costo = periodo.sizeInDays() * 500;
+		
+		if (this.getMascota().utilizo5servicios())
+			return costo * 0.9;
+		else
+			return costo;
+	}
+	
+	public boolean cumpleFecha(LocalDate fecha) {
+		return this.periodo.includesDate(fecha);
+	}
 }
