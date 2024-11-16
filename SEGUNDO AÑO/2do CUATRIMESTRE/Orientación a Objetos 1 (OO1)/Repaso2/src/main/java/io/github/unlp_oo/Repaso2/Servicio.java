@@ -7,4 +7,18 @@ public abstract class Servicio {
 	public Servicio (Mascota mascota) {
 		this.mascota = mascota;
 	}
+	
+	public Mascota getMascota() {
+		return this.mascota;
+	}
+	
+	public abstract double costoServicio();
+	public abstract boolean cumpleFecha (LocalDate fecha);
+	
+	public double recaudadoEnFecha(LocalDate fecha) {
+		if (this.cumpleFecha(fecha))
+			return this.costoServicio();
+		else 
+			return 0;
+	}
 }
