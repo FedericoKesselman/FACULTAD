@@ -20,9 +20,15 @@ public class Mascota {
 		return c;
 	}
 	
-	public ConsultaMedica crearVacunacion(Medico medico) {
-		ConsultaMedica c = new ConsultaMedica (this, LocalDate.now(), medico);
-		this.servicios.add(c);
-		return c;
+	public Vacunacion crearVacunacion(Medico medico, String nombreV, double costo) {
+		Vacunacion v = new Vacunacion (this, LocalDate.now(), medico, nombreV, costo);
+		this.servicios.add(v);
+		return v;
+	}
+	
+	public Guarderia crearGuarderia (int cantDias) {
+		Guarderia g = new Guarderia (this, LocalDate.now(), cantDias);
+		this.servicios.add(g);
+		return g;
 	}
 }
