@@ -10,4 +10,8 @@ public class Tweet implements Post {
 	public String getTexto() {
 		return this.texto;
 	}
+	
+	public boolean debeEliminarse (Post post) {
+		return post.equals(this);
+	}
 }

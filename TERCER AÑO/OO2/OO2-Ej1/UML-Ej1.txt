@@ -1,0 +1,47 @@
+@startuml
+class Twitter {
+    - List<Usuario> usuarios
+    + <Create> Twitter()
+    + boolean existeUsuario(String screenName)
+    + Usuario crearUsuario(String screenName)
+    + void eliminarUsuario(Usuario usuario)
+    + void borrarReferenciados(Post post)
+}
+
+class Usuario {
+    - String screenName
+    - List<Post> tweets
+    + <Create> Usuario(String screenName)
+    + String getScreenName()
+    + void eliminarReferencias(Post tweet)
+    + List<Post> getTweets()
+    + Post twittear(String texto)
+    - boolean cumpleLongitud(String texto)
+    + Post reTwittear(Tweet tweet)
+}
+
+interface Post {
+    + String getTexto()
+    + boolean debeEliminarse(Post post)
+}
+
+class Tweet {
+    - String texto
+    + <Create> Tweet(String texto)
+    + String getTexto()
+    + boolean debeEliminarse(Post post)
+}
+
+class ReTweet {
+    - Post tweetOrigen
+    + <Create> ReTweet(Post tweetOrigen)
+    + String getTexto()
+    + boolean debeEliminarse(Post post)
+}
+
+Twitter "1" -- "*" Usuario : contiene
+Usuario "1" -- "*" Post : publica
+Post <|.. Tweet
+Post <|.. ReTweet
+ReTweet "1" -- "1" Post : referencia
+@enduml

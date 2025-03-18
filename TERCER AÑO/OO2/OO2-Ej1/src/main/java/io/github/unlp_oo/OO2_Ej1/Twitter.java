@@ -22,25 +22,20 @@ public class Twitter {
 	    return u;
 	}
 	
+	public void eliminarUsuario (Usuario usuario) {
+		if (usuarios.contains(usuario)) {
+			
+			List<Post> tweets = new LinkedList<>(usuario.getTweets());
+			usuarios.remove(usuario);
+			
+			tweets.stream().forEach(p -> borrarReferenciados(p));
+		}
+	}
+	
 	public void borrarReferenciados (Post post) {
 		this.usuarios.stream()
 			.forEach(usuario -> usuario.eliminarReferencias(post));
 	}
-	
-	public void eliminarUsuario (Usuario usuario) {
-		if (usuarios.contains(usuario)) {
-			
-			List<Post> tweets = usuario.getTweets();
-			tweets.stream().forEach(t -> borrarReferenciados(t));
-			
-			usuario.eliminarTweets();
-			usuarios.remove(usuario);
-		}
-	}
-	
-
-
-
 }
 
 

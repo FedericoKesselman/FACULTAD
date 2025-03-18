@@ -8,6 +8,7 @@ public class Usuario {
 	private List<Post> tweets;
 	
 	public Usuario (String screenName) {
+		this.screenName = screenName;
 		this.tweets = new LinkedList<>();
 	}
 	
@@ -15,29 +16,24 @@ public class Usuario {
 		return this.screenName;
 	}
 	
-	public void eliminarTweets () {
-		tweets = new LinkedList<>();
-	}
-	
 	public void eliminarReferencias(Post tweet) {
 	    this.tweets = this.tweets.stream()
-	        .filter(post -> !(post instanceof ReTweet && ((ReTweet) post).getTweetOrigen().equals(tweet)))
+	        .filter(post -> !post.debeEliminarse(tweet)) 
 	        .collect(Collectors.toList());
 	}
+
 	
 	public List<Post> getTweets () {
 		return this.tweets;
 	}
-
 	
 	public Post twittear (String texto) {
-		Post tweet = null;
+		Tweet tweet = null;
 		if (cumpleLongitud(texto)) {
 			tweet = new Tweet(texto);
 			tweets.add(tweet);
 		}
 		return tweet;
-		
 	}
 	
 	private boolean cumpleLongitud (String texto) {
