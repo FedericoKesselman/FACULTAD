@@ -1,0 +1,61 @@
+@startuml
+interface Jugada {
+    + String juegaContraPapel()
+    + String juegaContraPiedra()
+    + String juegaContraTijera()
+    + String juegaContraLagarto()
+    + String juegaContraSpock()
+    + String juegaContra(Jugada jugada)
+}
+
+class Piedra {
+    + String juegaContra(Jugada jugada)
+    + String juegaContraPapel()
+    + String juegaContraPiedra()
+    + String juegaContraTijera()
+    + String juegaContraLagarto()
+    + String juegaContraSpock()
+}
+
+class Papel {
+    + String juegaContra(Jugada jugada)
+    + String juegaContraPapel()
+    + String juegaContraPiedra()
+    + String juegaContraTijera()
+    + String juegaContraLagarto()
+    + String juegaContraSpock()
+}
+
+class Tijera {
+    + String juegaContra(Jugada jugada)
+    + String juegaContraPapel()
+    + String juegaContraPiedra()
+    + String juegaContraTijera()
+    + String juegaContraLagarto()
+    + String juegaContraSpock()
+}
+
+class Lagarto {
+    + String juegaContra(Jugada jugada)
+    + String juegaContraPapel()
+    + String juegaContraPiedra()
+    + String juegaContraTijera()
+    + String juegaContraLagarto()
+    + String juegaContraSpock()
+}
+
+class Spock {
+    + String juegaContra(Jugada jugada)
+    + String juegaContraPapel()
+    + String juegaContraPiedra()
+    + String juegaContraTijera()
+    + String juegaContraLagarto()
+    + String juegaContraSpock()
+}
+
+Jugada <|.. Piedra
+Jugada <|.. Papel
+Jugada <|.. Tijera
+Jugada <|.. Lagarto
+Jugada <|.. Spock
+@enduml
