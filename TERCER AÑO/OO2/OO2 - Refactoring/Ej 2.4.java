@@ -1,0 +1,35 @@
+public class Producto {
+    private String nombre;
+    private double precio;
+    
+    public double getPrecio() {
+        return this.precio;
+    }
+}
+
+public class ItemCarrito {
+    private Producto producto;
+    private int cantidad;
+        
+    public Producto getProducto() {
+        return this.producto;
+    }
+    
+    public int getCantidad() {
+        return this.cantidad;
+    }
+
+    public double calcularPrecio() {
+        return this.producto.getPrecio() * this.cantidad;
+    }
+}
+
+public class Carrito {
+    private List<ItemCarrito> items;
+    
+    public double total() {
+        return this.items.stream()
+        .mapToDouble(item -> item.calcularPrecio())
+        .sum();
+    }
+}
