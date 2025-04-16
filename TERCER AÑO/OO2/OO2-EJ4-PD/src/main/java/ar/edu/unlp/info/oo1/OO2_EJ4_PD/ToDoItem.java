@@ -49,11 +49,30 @@ public class ToDoItem {
 		this.fin = fin;
 	}
 
-	public void addComment(String comment) {
+	protected void addComment(String comment) {
 		this.comentarios.add(comment);
 	}
+	
+	public void comentar(String comment) {
+		this.estado.addComment(this, comment);
+	}
+	
 	
 	public Duration workedTime() {
 		return this.estado.workedTime(this);
 	}
+	
+	public List<String> getComentarios() {
+		return this.comentarios;
+	}
+	
+	public String getEstadoActual() {
+		return this.estado.getNombreEstado();
+	}
+	
+	
+	
+	
+	
+	
 }

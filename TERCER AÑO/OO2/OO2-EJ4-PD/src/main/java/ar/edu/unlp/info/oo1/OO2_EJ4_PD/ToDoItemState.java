@@ -9,4 +9,5 @@ public abstract class ToDoItemState {
 
 	public abstract Duration workedTime(ToDoItem context);
 	public abstract void addComment(ToDoItem context, String comment);
+	public abstract String getNombreEstado();
 }

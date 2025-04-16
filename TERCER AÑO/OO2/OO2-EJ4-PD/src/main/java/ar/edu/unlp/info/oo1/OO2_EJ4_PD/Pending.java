@@ -30,4 +30,9 @@ public class Pending extends ToDoItemState{
 	public void addComment(ToDoItem context, String comment) {
 		context.addComment(comment);
 	}
+
+	@Override
+	public String getNombreEstado() {
+		return "Pending";
+	}
 }

@@ -30,4 +30,8 @@ public class Finished extends ToDoItemState{
 		// No hace nada 
 	}
 
+	@Override
+	public String getNombreEstado() {
+		return "Finished";
+	}
 }
