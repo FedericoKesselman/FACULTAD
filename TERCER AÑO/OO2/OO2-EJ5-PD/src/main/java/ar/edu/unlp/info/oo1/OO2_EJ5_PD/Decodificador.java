@@ -14,6 +14,12 @@ public class Decodificador {
 		this.estrategia = new StrategyNovedad(); // por defecto la primera
 	}
 	
+	public Decodificador(List<Pelicula> grilla, List<Pelicula> reproducidas) {
+		this.grilla = grilla;
+		this.reproducidas = reproducidas;
+		this.estrategia = new StrategyNovedad(); // por defecto la primera
+	}
+	
 	// Mejor devolver lista que string, mas facil extender comportamiento
 	public List<Pelicula> sugerirPeliculas() {
 		return this.estrategia.sugerirPeliculas(this);

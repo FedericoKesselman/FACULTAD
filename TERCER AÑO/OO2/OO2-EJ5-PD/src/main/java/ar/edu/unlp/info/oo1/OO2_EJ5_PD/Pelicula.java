@@ -5,13 +5,13 @@ import java.util.*;
 
 public class Pelicula {
 	private String titulo;
-	private LocalDate fechaEstreno;
+	private Integer anioEstreno;
 	private List<Pelicula> similares;
 	private double puntaje;
 	
-	public Pelicula(String titulo, LocalDate fechaEstreno, double puntaje) {
+	public Pelicula(String titulo, int anioEstreno, double puntaje) {
 		this.titulo = titulo;
-		this.fechaEstreno = fechaEstreno;
+		this.anioEstreno = anioEstreno;
 		this.puntaje = puntaje;
 		this.similares = new LinkedList<>();
 	}
@@ -32,8 +32,8 @@ public class Pelicula {
 		return this.titulo;
 	}
 
-	public LocalDate getFechaEstreno() {
-		return this.fechaEstreno;
+	public Integer getAnioEstreno() {
+		return this.anioEstreno;
 	}
 
 	public double getPuntaje() {
