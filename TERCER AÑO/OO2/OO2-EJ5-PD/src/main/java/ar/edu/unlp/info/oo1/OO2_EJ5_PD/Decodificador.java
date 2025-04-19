@@ -47,4 +47,10 @@ public class Decodificador {
 	public List<Pelicula> getGrilla() {
 		return this.grilla;
 	}
+	
+	/*
+	 Se utilizó el patrón Strategy. Porque el comportamiento del decodificador al sugerir 
+	 películas varía dinámicamente según un criterio configurado por el usuario, y debe
+	 poder cambiarse en tiempo de ejecución.
+	 */
 }
