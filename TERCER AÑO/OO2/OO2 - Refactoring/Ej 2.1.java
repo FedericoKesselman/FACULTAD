@@ -23,5 +23,4 @@ public class EmpleadoTemporal extends Empleado{
     public double sueldo() {
         return super.sueldo() + (this.horasTrabajadas * 500) + (this.cantidadHijos * 1000);
     }   
-    // prueba
 }
