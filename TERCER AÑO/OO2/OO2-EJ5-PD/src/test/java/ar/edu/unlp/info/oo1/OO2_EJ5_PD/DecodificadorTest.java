@@ -1,5 +1,6 @@
 package ar.edu.unlp.info.oo1.OO2_EJ5_PD;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.*;
