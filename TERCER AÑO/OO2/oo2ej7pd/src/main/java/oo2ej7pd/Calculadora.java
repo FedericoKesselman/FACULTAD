@@ -46,10 +46,10 @@ public class Calculadora {
     }
 
     public void multiplicando() {
-        this.estado.multiplicando(this);
+        this.estado.por(this);
     }
 
     public void dividiendo() {
-        this.estado.dividiendo(this);
+        this.estado.dividido(this);
     }
 }
