@@ -29,6 +29,10 @@ public class Calculadora {
         return this.estado.getResultado(this);
     }
 
+    public void setValor(double valor) { 
+        this.estado.setValor(valor, this);
+    }
+
     public void borrar() {
         this.reiniciarCalculadora();
     }
@@ -39,5 +43,13 @@ public class Calculadora {
 
     public void menos() {
         this.estado.menos(this);
+    }
+
+    public void multiplicando() {
+        this.estado.multiplicando(this);
+    }
+
+    public void dividiendo() {
+        this.estado.dividiendo(this);
     }
 }
