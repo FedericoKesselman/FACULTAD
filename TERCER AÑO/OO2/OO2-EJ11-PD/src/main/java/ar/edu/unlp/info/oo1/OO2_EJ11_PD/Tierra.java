@@ -1,0 +1,9 @@
+package ar.edu.unlp.info.oo1.OO2_EJ11_PD;
+
+public class Tierra extends Topografia{
+	
+	@Override
+	public double proporcionAgua() {
+		return 0;
+	}
+}
