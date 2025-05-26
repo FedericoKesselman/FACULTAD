@@ -1,0 +1,21 @@
+Parte teórica EJ16A patrones:
+
+Strategy:
+Objetivo del patrón: Permite definir una familia de algoritmos (filtros de imágenes), encapsular cada uno como un objeto y hacerlos intercambiables. Esto permite que el algoritmo varíe independientemente del cliente que lo usa.
+
+Coincidencia con el diseño: El diseño actual coincide con este patrón. La clase abstracta Filter define una interfaz común (filter), y cada filtro concreto (como Rainbow, Repeater, RGBShifter, etc.) implementa su propia versión del algoritmo. El PNGFilterLauncher utiliza estos filtros de manera intercambiable a través de la lista activeFilters, sin necesidad de conocer los detalles internos de cada uno.
+
+No se observa ningún smell.
+
+
+Decorator
+Objetivo del patrón: El patrón Decorator permite añadir funcionalidades a un objeto de manera dinámica, envolviéndolo en objetos decoradores. Esto es útil cuando se desea extender el comportamiento de un objeto sin usar herencia.
+
+Coincidencia con el diseño: El diseño actual no coincide con este patrón. En Decorator, se esperaría que los filtros se apliquen en cadena, donde cada filtro "envuelve" al anterior (por ejemplo, new Rainbow(new Repeater(image))). Sin embargo, en este proyecto, los filtros se aplican secuencialmente en un bucle dentro de PNGFilterLauncher, sin anidamiento ni composición de objetos. Además, no hay una clase base que "decore" a otra.
+
+
+Template Method
+Objetivo del patrón: El patrón Template Method define el esqueleto de un algoritmo en una clase base, delegando algunos pasos a subclases. Esto permite que las subclases redefinan ciertos pasos sin cambiar la estructura del algoritmo.
+
+Coincidencia con el diseño: El diseño actual no coincide con este patrón. Aunque hay una clase abstracta Filter con un método abstracto filter, no hay un algoritmo definido en la clase base que las subclases deban seguir o especializar. Cada filtro implementa su propia lógica sin seguir una plantilla común.
+

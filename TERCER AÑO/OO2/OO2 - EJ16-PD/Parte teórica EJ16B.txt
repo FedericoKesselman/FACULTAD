@@ -1,0 +1,20 @@
+Parte teórica EJ16B
+
+El patrón utilizado es un Decorator.
+Objetivo del patrón: Permite añadir funcionalidades a un objeto de manera dinámica, envolviéndolo en "decoradores". Cada decorador aplica su lógica y luego delega al objeto envuelto.
+
+Coincidencia con el diseño:
+
+Sí coincide con el programa. Cada ImageFilterPipe actúa como un decorador:
+
+Aplica su propio filtro (filter.filter(image)).
+
+Luego delega al siguiente nodo (nextPipe.filter(...)).
+
+La cadena se construye dinámicamente con addFilter(), similar a cómo se encadenan decoradores.
+
+
+---
+
+ImageFilterPipe: Tiene tanto el filtro que aplica como el siguiente filtro que es aplicado (o EndPipe si es el último)
+EndPipe: El filtro que indica que es el último. 
