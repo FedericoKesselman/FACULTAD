@@ -2,6 +2,7 @@ package ar.edu.unlp.info.oo2.OO2_EJ15_PD;
 
 public abstract class ComputadoraBuilder {
 	private Computadora computadora;
+	private Catalogo catalogo;
 	
 	public void reset() {
 		this.computadora = new Computadora();

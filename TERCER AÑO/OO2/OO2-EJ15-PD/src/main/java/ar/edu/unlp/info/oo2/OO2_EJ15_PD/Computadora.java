@@ -18,7 +18,7 @@ public class Computadora {
 	public double precio() {
 		return this.componentes.stream()
 				.mapToDouble(c -> c.getPrecio())
-				.sum();
+				.sum() * 1.21;
 	}
 	
 	public void setProcesador(Componente com) {
