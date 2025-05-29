@@ -7,6 +7,6 @@ import tcp.server.reply.*;
 public class EchoApp  {
    
     public static void main(String[] args) {
-        new TCPControlLoop(new SingleConnectionHandler(new EchoHandler())).startLoop(args);
+        new TCPControlLoop(new SingleConnectionHandler(new EchoHandler(), "Close")).startLoop(args);
     }
 }

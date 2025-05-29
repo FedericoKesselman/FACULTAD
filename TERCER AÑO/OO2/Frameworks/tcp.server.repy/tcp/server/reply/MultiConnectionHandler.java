@@ -9,12 +9,15 @@ import java.net.Socket;
 
 public class MultiConnectionHandler implements IConnectionHandler {
     private IMessageHandler messageHandler;
+    private String closeMsg;
     //private EndSessionPolicy endSessionPolicy;
     
 
 
-    public MultiConnectionHandler(IMessageHandler messageHandler/*, EndSessionPolicy endSessionPolicy */) {
+    public MultiConnectionHandler(IMessageHandler messageHandler/*, EndSessionPolicy endSessionPolicy */, 
+    		String closeMsg) {
         this.messageHandler = messageHandler;
+        this.closeMsg = closeMsg;
         //this.endSessionPolicy = endSessionPolicy;
     }
 
@@ -32,8 +35,12 @@ public class MultiConnectionHandler implements IConnectionHandler {
     public void handleConnection(ServerSocket serverSocket) throws IOException {
         Socket clientSocket = acceptAndDisplaySocket(serverSocket);
         new SocketWorker(clientSocket).start();
-
     }
+    
+    //
+    protected boolean shouldCloseConnection(String message) {
+    	return message.equalsIgnoreCase(this.closeMsg);
+    } 
 
     private class SocketWorker extends Thread {
         private Socket clientSocket;
@@ -51,7 +58,7 @@ public class MultiConnectionHandler implements IConnectionHandler {
                     System.out.println("Received message: " + inputLine + " from "
                             + clientSocket.getInetAddress().getHostAddress() + ":" + clientSocket.getPort());
 
-                    if (inputLine.equalsIgnoreCase("")) {
+                    if (shouldCloseConnection(inputLine)) {
                         break; // Client requested to close the connection
                     }
                     messageHandler.handleMessage(inputLine, out);
@@ -69,7 +76,6 @@ public class MultiConnectionHandler implements IConnectionHandler {
                 }
             }
         }
-
     }
 
 }

@@ -9,16 +9,17 @@ import java.net.Socket;
 
 public class SingleConnectionHandler implements IConnectionHandler {
     private IMessageHandler messageHandler;
+    private String closeMsg;
     
     public SingleConnectionHandler(IMessageHandler messageHandler, /*EndSessionPolicy endSessionPolicy, */
             ITCPSession sessionHandler) {
         this.messageHandler = messageHandler;
-        
     }
 
-    public SingleConnectionHandler(IMessageHandler messageHandler /*, EndSessionPolicy endSessionPolicy */) {
+    public SingleConnectionHandler(IMessageHandler messageHandler /*, EndSessionPolicy endSessionPolicy */,
+    		String closeMsg) {
         this.messageHandler = messageHandler;
-
+        this.closeMsg = closeMsg;
     }
 
     public SingleConnectionHandler() {
@@ -48,7 +49,7 @@ public class SingleConnectionHandler implements IConnectionHandler {
                         System.out.println("Received message: " + inputLine + " from "
                                 + clientSocket.getInetAddress().getHostAddress() + ":" + clientSocket.getPort());
                         
-                        if (inputLine.equalsIgnoreCase("")) {
+                        if (this.shouldCloseConnection(inputLine)) {
                             break; // Client requested to close the connection
                         }
                         messageHandler.handleMessage(inputLine, out);
@@ -65,5 +66,9 @@ public class SingleConnectionHandler implements IConnectionHandler {
                 System.err.println("Error closing socket: " + e.getMessage());
             }
         }
+    }
+    
+    protected boolean shouldCloseConnection(String message) {
+    	return message.equalsIgnoreCase(this.closeMsg);
     }
 }
