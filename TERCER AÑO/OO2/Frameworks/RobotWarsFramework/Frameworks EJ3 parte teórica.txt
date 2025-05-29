@@ -1,0 +1,52 @@
+Frameworks EJ3
+1)
+   a) En caso de querer agregar una nueva fuente de enería, como por ejemplo paneles solares, se deberían agregar todas las variantes necesarias de armas y movilidad utilizando dicha fuente. Esto sucede ya que se está extendiendo el framework con herencia. Cada nueva variante de un hotspot implica redefinir todas las combinaciones posibles.
+Ejemplo de clases a agregar:	
+	<Abstract> PanelSolarRobot x
+
+	<Abstract> PanelSolarOvercraftRobot 
+	PanelSolarOvercraftRobotWithLasers
+	PanelSolarOvercraftRobotWithBombs
+
+	<Abstract> PanelSolarCaterpillartRobot x
+	PanelSolarCaterpillarRobotWithLasers x
+	PanelSolarCaterpillarRobotWithBombs
+	
+   b) No, no es posible ya que cada robot instanciado ya tiene su propia configuración (que es dada por la instancia: combinación de lomoción, energía y armamento). No es posible cambiar dinámicamente un atributo que está fijo por definición de clase.
+
+   c) El nivel de batería debería almacenarse en el componente que representa la fuente de energía (como SolarWithBattery). En herencia, eso tiende a mezclarse con el resto del robot, generando acoplamiento. Y no debe ser implementado en el Robot. 
+
+
+2)
+   a) En caso de querer agregar una nueva fuente de locomoción, como ruedas 4x4, habría que simplemente agregar una nueva clase 4x4Wheels que extienda a la clase LocomotionSystem. Esta nueva clase contendrá todo el manejo de la nueva fuente, como el método move(), etc. 
+
+   b) Sí, como en este caso se está utilizando composición, con hacer un set del nuevo sistema de armas es suficiente, sin tener que instanciar un nuevo robot.
+
+   c) El nivel de la batería podría ser almacenado en la clase concreta que tenga el sistema de energía de paneles solares. SolarWithBattery. 
+
+
+3)
+Herencia: 
+   * Más simple para casos con pocas alternativas o combinaciones.
+   * Se puede utilizar las variables de instancia y todo el comportamiento heredado de la clase abstracta sin tener que pasar el Robot por parámetro.
+   * Desventaja: Si hay muchas variantes o combinaciones, se empieza a tener muchas clases y duplicación de código.
+
+Composición:
+   * Evita la duplicación de código y el creciente numero de clases cuando existen muchas alternativas y combinaciones.
+   * Se puede cambiar el comportamiento en tiempo de ejecución. 
+   * Desventaja: al implementar los métodos gancho se debe pasar por parámetro todo lo que necesiten, ya que no tienen acceso a las variables de instancia del objeto.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
