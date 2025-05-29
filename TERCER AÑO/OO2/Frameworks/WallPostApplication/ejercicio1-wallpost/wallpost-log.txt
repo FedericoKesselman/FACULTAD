@@ -1,0 +1,10 @@
+May 28, 2025 7:10:57 PM ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl dislike
+WARNING: Se llego a los 0 likes.
+May 28, 2025 7:10:58 PM ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl dislike
+WARNING: Se llego a los 0 likes.
+May 28, 2025 7:10:58 PM ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl dislike
+WARNING: Se llego a los 0 likes.
+May 28, 2025 7:11:00 PM ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl like
+WARNING: Se alcanzaron los 10 likes.
+May 28, 2025 7:11:02 PM ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl dislike
+WARNING: Se llego a los 0 likes.

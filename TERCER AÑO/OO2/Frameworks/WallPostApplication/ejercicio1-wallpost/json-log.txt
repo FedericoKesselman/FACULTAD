@@ -1,0 +1,27 @@
+{ message:Inicio de la aplicación WallPost., level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Like clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
+{ message:Dislike clickeado, level: INFO}
