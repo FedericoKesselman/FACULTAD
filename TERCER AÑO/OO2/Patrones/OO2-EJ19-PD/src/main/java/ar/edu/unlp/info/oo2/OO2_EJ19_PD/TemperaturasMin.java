@@ -7,7 +7,7 @@ public class TemperaturasMin extends WeatherDecorator{
 	
 	@Override
 	public String displayData() {
-		return this.component.displayData() + "; Mínimo: " + this.minTemp();
+		return super.displayData() + "; Mínimo: " + this.minTemp();
 	}
 	
 	private double minTemp() {

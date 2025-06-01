@@ -33,6 +33,4 @@ public class WeatherDecorator implements WeatherData{
 	public String displayData() {
 		return this.component.displayData();
 	}
-	
-
 }

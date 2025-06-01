@@ -7,7 +7,7 @@ public class TemperaturasMax extends WeatherDecorator{
 	
 	@Override
 	public String displayData() {
-		return this.component.displayData() + "; Máximo: " + this.maxTemp();
+		return super.displayData() + "; Máximo: " + this.maxTemp();
 	}
 	
 	private double maxTemp() {

@@ -49,5 +49,4 @@ public class TCPControlLoop {
     private void displayUsage() {
         System.err.println("Usage: java"+this.getClass().getName() +"<port number>");
     }
-
 }

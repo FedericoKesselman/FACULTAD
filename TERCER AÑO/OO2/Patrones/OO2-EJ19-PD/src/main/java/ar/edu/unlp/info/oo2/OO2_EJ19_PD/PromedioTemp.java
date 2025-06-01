@@ -7,7 +7,7 @@ public class PromedioTemp extends WeatherDecorator{
 	
 	@Override
 	public String displayData() {
-		return this.component.displayData() + "; Promedio: " + this.promedio();
+		return super.displayData() + "; Promedio: " + this.promedio();
 	}
 	
 	private double promedio() {
