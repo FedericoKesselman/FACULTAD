@@ -1,22 +1,33 @@
 package ar.edu.unlp.info.oo2.facturacion_llamadas;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public class Cliente {
-	public List<Llamada> llamadas = new ArrayList<Llamada>();
-	private String tipo;
+public abstract class Cliente {
+	private List<Llamada> llamadas = new ArrayList<Llamada>();
 	private String nombre;
 	private String numeroTelefono;
-	private String cuit;
-	private String dni;
+	
+	public Cliente(String nombre, String numeroTelefono) {
+		this.llamadas = new LinkedList<Llamada>();
+		this.nombre = nombre;
+		this.numeroTelefono = numeroTelefono;
+	}
 
-	public String getTipo() {
-		return tipo;
+	public double calcularMontoTotalLlamadas() {
+		double aux = this.llamadas.stream()
+			.mapToDouble(l -> l.calcularPrecio())
+			.sum();
+		return aux - this.calcularDescuento(aux);
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	
+	private double calcularDescuento(double auxc) {
+		return auxc * this.getDescuento();
 	}
+	protected abstract double getDescuento();
+	///
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -29,16 +40,8 @@ public class Cliente {
 	public void setNumeroTelefono(String numeroTelefono) {
 		this.numeroTelefono = numeroTelefono;
 	}
-	public String getCuit() {
-		return cuit;
-	}
-	public void setCuit(String cuit) {
-		this.cuit = cuit;
-	}
-	public String getDNI() {
-		return dni;
-	}
-	public void setDNI(String dni) {
-		this.dni = dni;
+
+	public void agregarLlamada(Llamada llamada) {
+		this.llamadas.add(llamada);
 	}
 }
