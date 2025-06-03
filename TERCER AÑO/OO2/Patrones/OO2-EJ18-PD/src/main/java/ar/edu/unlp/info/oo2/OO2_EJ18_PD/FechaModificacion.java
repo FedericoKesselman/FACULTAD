@@ -7,6 +7,6 @@ public class FechaModificacion extends ArchivoDecorator{
 
 	@Override
 	public String prettyPrint() {
-		return this.component().prettyPrint() + " " + this.getFechaModificacion();
+		return super.prettyPrint() + " " + this.getFechaModificacion();
 	}
 }
