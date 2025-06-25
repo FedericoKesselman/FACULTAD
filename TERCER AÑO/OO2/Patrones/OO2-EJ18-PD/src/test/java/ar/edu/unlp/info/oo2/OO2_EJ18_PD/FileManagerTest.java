@@ -47,4 +47,12 @@ public class FileManagerTest {
 	void testSinDecorators() {
 		assertEquals("archivo", this.fileManager.prettyPrint());
 	}
+	
+	@Test
+	void test() {
+		Archivo a = new Archivo("Pre prueba");
+		System.out.println(a.getNombre());
+		Archivo ar = Prueba.prueba(a);
+		System.out.println(ar.getNombre());
+	}
 }

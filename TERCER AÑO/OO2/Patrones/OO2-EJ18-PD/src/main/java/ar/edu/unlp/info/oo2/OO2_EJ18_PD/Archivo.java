@@ -19,6 +19,10 @@ public class Archivo implements FileManager{
 		this.fechaModificacion = fechaModificacion;
 		this.permisos = permisos;
 	}
+	
+	public Archivo(String nombre) {
+		this.nombre = nombre;
+	}
 
 	@Override
 	public String prettyPrint() {
@@ -55,5 +59,7 @@ public class Archivo implements FileManager{
 		return this.permisos;
 	}
 	
-
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 }
