@@ -10,7 +10,7 @@ int main() {
         cin >> lista[i];
     }
 
-    int puntaje = lista[k - 1]; // el puntaje del k-ésimo lugar
+    int puntaje = lista[k - 1];
     int cant = 0;
 
     for (int i = 0; i < n; i++) {
